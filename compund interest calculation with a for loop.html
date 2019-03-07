@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Calculating Compund Interest</title>
+    <style type="text/css">
+        table {
+            width: 300px;
+            border-collapse: collapse;
+            background-color: lightblue;
+        }
+
+        table, td, th {
+            border: 1px solid black;
+            padding: 4px;
+        }
+
+        th {
+            text-align: left;
+            color: white;
+            background-color: darkblue;
+        }
+
+        tr.oddrow {
+            background-color: white;
+        }
+    </style>
+
+    <script>
+        var amount; // current amount of money
+        var principal = 1000.00; // principal amount
+        var rate = 0.05; // interest rate
+
+        document.writeln("<table>"); //begin the table
+        document.writeln("<caption>Calculating Compund Interest</caption>");
+        document.writeln("<thead><tr><th>Year</th>"); //year column heading
+        document.writeln("<th>Amount on deposit</th>"); //amount column heading
+        document.writeln("</tr></thead><tbody>");
+
+        // output a table row for each year
+        for (var year = 1; year <= 10; ++year)
+        {
+            amount = principal * Math.pow(1.0 + rate, year);
+
+            if (year % 2 !== 0)
+                document.writeln("<tr class='oddrow'><td>" + year + "</td><td>" + amount.toFixed(2) + "</td></tr>");
+            else
+                document.writeln("<tr><td>" + year + "</td><td>" + year + "</td><td>" + amount.toFixed(2) + "</td></tr>");
+        } //end for
+
+        document.writeln("</tbody></table>");
+
+    </script>
+
+
+</head>
+<body>
+
+</body>
+</html>
+
+
+<!--A person invests $1000.00 in a savings account yielding 5 percent interest. Assuming
+that all the interest is left on deposit, calculate and print the amount of money in the
+account at the end of each year for 10 years. Use the following formula to determine
+the amounts:
+    a=p (1 + r) n
+
+where
+    p is the original amount invested (i.e., the principal)
+    r is the annual interest rate
+    n is the number of years
+    a is the amount on deposit at the end of the nth year. -->
